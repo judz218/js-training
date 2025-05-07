@@ -4,7 +4,15 @@ import Chart from "../../components/Chart06";
 import instruction from "./instruction.md?raw";
 
 const convertData = (input) => {
-  return []; // ここを作りましょう！
+  return input.map( ({gender, y, x}) => {
+    return {
+      color: gender === "男性" ? "blue" : "red",
+      gender,
+      bmi: x/ (y/100)**2,
+      weight: x,
+      height: y,
+    };
+  });
 };
 
 const Lesson = () => {
