@@ -4,8 +4,21 @@ import Chart from "../../components/Chart03";
 import instruction from "./instruction.md?raw";
 
 const convertData = (input) => {
-  return []; // ここを作りましょう！
+  // ここを作りましょう！
+  return input.filter((item) => item.gender === "男性");
 };
+
+//あんまりよくないやつ
+// const convertData = (input) => {
+//   const result = [];
+//   for (let i = 0; i < input.length; i++) {
+//     if (input[i].gender === "男性") {
+//       result.push(input[i]);
+//     }
+//   }
+//   return result;
+// };
+//filterとかいう便利な関数があるんだからそっち使おうゼ！
 
 const Lesson = () => {
   return (
