@@ -4,14 +4,13 @@ import Chart from "../../components/Chart04";
 import instruction from "./instruction.md?raw";
 
 const convertData = (input) => {
-  const spe = new Set(input.map( (({species}) => spaces)));
-  const species = Array.from(spe);
+  const species = Array.from(new Set(input.map(({ species }) => species)));
   return species.map( (species) => {
     return { //辞書型を返している
       id: species,
       data: input
         .filter( (item) => item.species === species )
-        .map( ({ sepalLength: x, setalWidth: y}) => ({ x, y})),
+        .map( ({ sepalLength: x, petalWidth: y}) => ({ x, y})),
         //inputの中身をfilterで厳選して、その厳選したものをmap関数で回している、ってコト！！
     };
   });
